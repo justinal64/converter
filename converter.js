@@ -8,33 +8,21 @@
 function toCelsius (t) {
     t = (t - 32) * 5/9;
     degreeStyling(t, "°C");
-    // if (t > 90)
-    //     document.getElementById("answer").style.color = "red";
-    // else if (t < 32)
-    //     document.getElementById("answer").style.color = "blue";
-    // else
-    //     document.getElementById("answer").style.color = "black";
     return t + "°C";
 }
 
 function toFahrenheit (t) {
     t = (t * 9/5) + 32;
     degreeStyling(t, "°F");
-    // if (t > 32)
-    //     document.getElementById("answer").style.color = "red";
-    // else if (t < 0)
-    //     document.getElementById("answer").style.color = "blue";
-    // else
-    //     document.getElementById("answer").style.color = "black";
     return t + "°F";
 }
 
 function degreeStyling(t, degree) {
-    if (t > 32 && degree === "°F" || t > 90 && degree === "°C") {
+    if (t > 32 && degree === "°F" || t > 90 && degree === "°C")
         document.getElementById("answer").style.color = "red";
-    } else if (t < 0 && degree === "°F" || t < 32 && degree === "°C") {
+    else if (t < 0 && degree === "°F" || t < 32 && degree === "°C")
         document.getElementById("answer").style.color = "blue";
-    } else
+    else
         document.getElementById("answer").style.color = "black";
 }
 
