@@ -16,7 +16,7 @@ function toFahrenheit (t) {
     degreeStyling(t, "°F");
     return t + "°F";
 }
-
+// Task 7 - 9
 function degreeStyling(t, degree) {
     if (t > 32 && degree === "°F" || t > 90 && degree === "°C")
         document.getElementById("answer").style.color = "red";
