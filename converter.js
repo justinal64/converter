@@ -23,7 +23,7 @@ function degreeStyling(t, degree) {
     else if (t < 0 && degree === "°F" || t < 32 && degree === "°C")
         document.getElementById("answer").style.color = "blue";
     else
-        document.getElementById("answer").style.color = "black";
+        document.getElementById("answer").style.color = "green";
 }
 
 // Task 6
