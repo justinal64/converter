@@ -1,10 +1,60 @@
+// 68 degrees fah is 20 cel
+// (68°F - 32) × 5/9 = 20 °C
+
+// 20 degrees celsius is 68 fah
+// 20°C × 9/5 + 32 = 68 °F
+
+
 function toCelsius (t) {
-    return (t - 32) * 1.8;
+    t = (t - 32) * 5/9;
+    degreeStyling(t, "°C");
+    // if (t > 90)
+    //     document.getElementById("answer").style.color = "red";
+    // else if (t < 32)
+    //     document.getElementById("answer").style.color = "blue";
+    // else
+    //     document.getElementById("answer").style.color = "black";
+    return t + "°C";
 }
 
 function toFahrenheit (t) {
-    return (t * 1.8) + 32;
+    t = (t * 9/5) + 32;
+    degreeStyling(t, "°F");
+    // if (t > 32)
+    //     document.getElementById("answer").style.color = "red";
+    // else if (t < 0)
+    //     document.getElementById("answer").style.color = "blue";
+    // else
+    //     document.getElementById("answer").style.color = "black";
+    return t + "°F";
 }
+
+function degreeStyling(t, degree) {
+    if (t > 32 && degree === "°F" || t > 90 && degree === "°C") {
+        document.getElementById("answer").style.color = "red";
+    } else if (t < 0 && degree === "°F" || t < 32 && degree === "°C") {
+        document.getElementById("answer").style.color = "blue";
+    } else
+        document.getElementById("answer").style.color = "black";
+}
+
+// Task 6
+// If the user hits enter
+document.getElementById("temperature").onkeypress = function(e){
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13'){
+      // Enter pressed
+      determineConverter();
+    }
+  }
+
+// Task 5
+// Clears the input field when clicked
+document.getElementById("clearForm").addEventListener("click", function() {
+document.getElementById("temperature").value = "";
+document.getElementById("answer").value = "";
+});
 
 // Get a reference to the button element in the DOM
 var button = document.getElementById("converter");
@@ -21,23 +71,15 @@ function determineConverter (clickEvent) {
 
     // Check which radio button is checked
     if(document.getElementById("celsius").checked) {
-        console.log(toCelsius(temp));
+        document.getElementById("answer").value = toCelsius(temp);
     } else if (document.getElementById("fahrenheit").checked) {
-        console.log(toFahrenheit(temp));
+        document.getElementById("answer").value = toFahrenheit(temp);
     } else {
         alert("Please check Fahrenheit or Celsisus");
+        return false;
     }
 
 }
 
 // Assign a function to be executed when the button is clicked
 button.addEventListener("click", determineConverter);
-
-
-
-
-// 68 degrees fah is 20 cel
-// (68°F - 32) × 5/9 = 20 °C
-
-// 20 degrees celsius is 68 fah
-// 20°C × 9/5 + 32 = 68 °F
